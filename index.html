@@ -11,13 +11,38 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 
     <style>
-        /* CSS 스타일은 이전과 동일합니다 */
-        :root { --dark-bg: #1a1d24; --content-bg: #252932; --primary-blue: #007aff; --light-gray: #c5c8d2; --white: #ffffff; --border-color: #3a3f4b; }
+        /* ★★★★★ 변경된 스타일: 라이트 모드 ★★★★★ */
+        :root {
+            /* 기존 색상 변수 값을 라이트 모드에 맞게 반전 */
+            --dark-bg: #ffffff; /* 주 배경색을 흰색으로 변경 */
+            --content-bg: #ffffff; /* 카드 등 콘텐츠 배경색도 흰색으로 */
+            --primary-blue: #007aff; /* 포인트 색상은 유지 */
+            --light-gray: #5a5f6a; /* 본문 텍스트 색상을 어둡게 변경 */
+            --white: #1a1d24; /* 헤드라인 텍스트 색상을 매우 어둡게 변경 */
+            --border-color: #e0e6ed; /* 테두리 색상을 밝은 회색으로 변경 */
+        }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
-        body { font-family: 'Poppins', 'Noto Sans KR', sans-serif; background-color: var(--dark-bg); background-image: linear-gradient(rgba(26, 29, 36, 0.95), rgba(26, 29, 36, 1)), url(https://images.unsplash.com/photo-1590650153855-7e0b1dd94a73?q=80&w=2070&auto=format&fit=crop); background-size: cover; background-position: center; background-attachment: fixed; color: var(--light-gray); line-height: 1.7; }
+        body { 
+            font-family: 'Poppins', 'Noto Sans KR', sans-serif; 
+            background-color: var(--dark-bg); /* 변경: 어두운 배경 대신 흰색 배경 적용 */
+            color: var(--light-gray); 
+            line-height: 1.7; 
+            /* 변경: 어두운 배경 이미지 및 그라데이션 제거 */
+        }
         .container { max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
-        .main-header { position: fixed; top: 0; left: 0; width: 100%; padding: 1.5rem 0; background: rgba(26, 29, 36, 0.7); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border-color); z-index: 1000; }
+        .main-header { 
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            padding: 1.5rem 0; 
+            /* 변경: 배경을 밝은 반투명으로 수정 */
+            background: rgba(255, 255, 255, 0.8); 
+            backdrop-filter: blur(10px); 
+            border-bottom: 1px solid var(--border-color); 
+            z-index: 1000; 
+        }
         .main-nav { display: flex; justify-content: space-between; align-items: center; }
         .logo { font-family: 'Montserrat', sans-serif; font-size: 1.5rem; font-weight: 700; color: var(--white); text-decoration: none; }
         .logo span { color: var(--primary-blue); }
@@ -26,18 +51,38 @@
         .hero { display: flex; align-items: center; justify-content: center; text-align: center; min-height: 100vh; padding-top: 80px; }
         .hero-content h1 { font-family: 'Montserrat', sans-serif; font-size: 4rem; font-weight: 700; color: var(--white); margin-bottom: 1rem; line-height: 1.2; }
         .hero-content .subtitle { font-size: 1.25rem; max-width: 700px; margin: 0 auto 2rem; color: var(--light-gray); }
-        .cta-button { display: inline-block; background: var(--primary-blue); color: var(--white); padding: 1rem 2.5rem; border-radius: 5px; text-decoration: none; font-weight: 500; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .cta-button { display: inline-block; background: var(--primary-blue); color: #ffffff; padding: 1rem 2.5rem; border-radius: 5px; text-decoration: none; font-weight: 500; transition: transform 0.3s ease, box-shadow 0.3s ease; }
         .cta-button:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0, 122, 255, 0.2); }
         .section { padding: 6rem 0; }
         .section-title { font-family: 'Montserrat', sans-serif; font-size: 2.5rem; color: var(--white); text-align: center; margin-bottom: 1rem; position: relative; }
         .section-title::after { content: ''; display: block; width: 60px; height: 3px; background: var(--primary-blue); margin: 1rem auto 0; }
         .section-subtitle { text-align: center; font-size: 1.1rem; color: var(--light-gray); margin-bottom: 4rem; max-width: 600px; margin-left: auto; margin-right: auto; }
         .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
-        .feature-card { background: var(--content-bg); padding: 2.5rem; border: 1px solid var(--border-color); border-radius: 8px; transition: transform 0.3s ease, border-color 0.3s ease; }
-        .feature-card:hover { transform: translateY(-5px); border-color: var(--primary-blue); }
+        .feature-card { 
+            background: var(--content-bg); 
+            padding: 2.5rem; 
+            border: 1px solid var(--border-color); 
+            border-radius: 8px; 
+            /* 변경: 그림자 효과 추가하여 입체감 부여 */
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.07);
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; 
+        }
+        .feature-card:hover { 
+            transform: translateY(-5px); 
+            border-color: var(--primary-blue); 
+            /* 변경: 호버 시 그림자 효과 강화 */
+            box-shadow: 0 8px 30px rgba(0, 122, 255, 0.12);
+        }
         .feature-icon { font-size: 2.5rem; color: var(--primary-blue); margin-bottom: 1.5rem; }
         .feature-card h3 { font-size: 1.5rem; color: var(--white); margin-bottom: 1rem; }
-        .main-footer { background: #111317; padding: 3rem 0; text-align: center; border-top: 1px solid var(--border-color); margin-top: 6rem; }
+        .main-footer { 
+            /* 변경: 푸터 배경색을 밝은 회색으로 수정 */
+            background: #f8f9fa; 
+            padding: 3rem 0; 
+            text-align: center; 
+            border-top: 1px solid var(--border-color); 
+            margin-top: 6rem; 
+        }
         .main-footer p { color: var(--light-gray); }
     </style>
 </head>
