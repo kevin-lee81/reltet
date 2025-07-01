@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PVC Card Solutions - 신뢰를 구축하는 카드 제조</title>
+    
+    <!-- Google Fonts: Modern & Geometric -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- 기본 및 리셋 스타일 --- */
+        :root {
+            --dark-bg: #1a1d24; /* 메인 배경 (다크 차콜) */
+            --content-bg: #252932; /* 콘텐츠 블록 배경 */
+            --primary-blue: #007aff; /* 핵심 포인트 블루 */
+            --light-gray: #c5c8d2; /* 부드러운 텍스트 색상 */
+            --white: #ffffff; /* 강조 텍스트 및 제목 */
+            --border-color: #3a3f4b; /* 경계선 색상 */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', 'Noto Sans KR', sans-serif;
+            background-color: var(--dark-bg);
+            /* 은은한 빌딩 배경 이미지 */
+            background-image: linear-gradient(rgba(26, 29, 36, 0.95), rgba(26, 29, 36, 1)), url(https://images.unsplash.com/photo-1590650153855-7e0b1dd94a73?q=80&w=2070&auto=format&fit=crop);
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: var(--light-gray);
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* --- 헤더 및 내비게이션 --- */
+        .main-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1.5rem 0;
+            background: rgba(26, 29, 36, 0.7);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+        }
+
+        .main-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--primary-blue);
+        }
+        
+        .nav-links a {
+            color: var(--light-gray);
+            text-decoration: none;
+            margin-left: 2rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-blue);
+        }
+
+        /* --- 히어로 섹션 (메인 화면) --- */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            min-height: 100vh;
+            padding-top: 80px; /* 헤더 높이만큼 공간 확보 */
+        }
+
+        .hero-content h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 4rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.25rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            color: var(--light-gray);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--primary-blue);
+            color: var(--white);
+            padding: 1rem 2.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 122, 255, 0.2);
+        }
+        
+        /* --- 섹션 공통 스타일 --- */
+        .section {
+            padding: 6rem 0;
+        }
+
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            color: var(--white);
+            text-align: center;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--primary-blue);
+            margin: 1rem auto 0;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: var(--light-gray);
+            margin-bottom: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* --- 특징 섹션 (Our Strengths) --- */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: var(--content-bg);
+            padding: 2.5rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-blue);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        /* --- 제품 갤러리 섹션 --- */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: var(--content-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .product-card:hover {
+            box-shadow: 0 0 30px rgba(0, 122, 255, 0.15);
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+
+        .product-info {
+            padding: 2rem;
+        }
+
+        .product-info h3 {
+            font-size: 1.4rem;
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        /* --- 푸터 --- */
+        .main-footer {
+            background: #111317;
+            padding: 3rem 0;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+            margin-top: 6rem;
+        }
+
+        .main-footer p {
+            color: var(--light-gray);
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- 헤더 -->
+    <header class="main-header">
+        <div class="container">
+            <nav class="main-nav">
+                <a href="#hero" class="logo">PVCARD<span>.</span></a>
+                <div class="nav-links">
+                    <a href="#strengths">Our Strengths</a>
+                    <a href="#products">Products</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- 히어로 섹션 -->
+        <section class="hero" id="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Architects of Identity</h1>
+                    <p class="subtitle">20년 이상의 전문성으로 고객의 신뢰를 구축하는 프리미엄 PVC 카드 솔루션. 정밀함과 혁신으로 당신의 브랜드를 완성합니다.</p>
+                    <a href="#products" class="cta-button">제품 갤러리 보기</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 우리의 강점 섹션 -->
+        <section class="section" id="strengths">
+            <div class="container">
+                <h2 class="section-title">Our Strengths</h2>
+                <p class="section-subtitle">우리는 단순한 카드 제조사를 넘어, 기술과 디자인으로 고객의 비전을 실현하는 파트너입니다.</p>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">⚡</div>
+                        <h3>신속한 생산</h3>
+                        <p>최신 장비와 효율적인 생산 시스템으로 업계 최고의 납기 속도를 준수합니다.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🎯</div>
+                        <h3>정밀한 품질</h3>
+                        <p>ISO 표준을 준수하는 엄격한 품질 관리로 모든 카드에서 완벽함을 보장합니다.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🔧</div>
+                        <h3>맞춤형 솔루션</h3>
+                        <p>고객의 독창적인 요구에 부응하는 완벽한 맞춤형 카드 디자인 및 제작이 가능합니다.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">💎</div>
+                        <h3>프리미엄 소재</h3>
+                        <p>최고급 PVC 원재료만을 사용하여 뛰어난 내구성과 고급스러운 질감을 제공합니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 제품 갤러리 섹션 -->
+        <section class="section" id="products">
+            <div class="container">
+                <h2 class="section-title">Products</h2>
+                <p class="section-subtitle">금융, 리테일, 보안 등 다양한 산업 분야에 최적화된 고품질 카드 솔루션을 만나보세요.</p>
+                <div class="products-grid">
+                    
+                    <!-- 제품 카드들 -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="images/creditcard.jpg" alt="신용카드">
+                        </div>
+                        <div class="product-info">
+                            <h3>금융 & 신용카드</h3>
+                            <p>EMV 칩, NFC, 마그네틱 스트라이프를 탑재한 최고 수준의 보안성을 갖춘 금융 카드입니다.</p>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="images/membership.jpg" alt="멤버십카드">
+                        </div>
+                        <div class="product-info">
+                            <h3>멤버십 & 로열티 카드</h3>
+                            <p>바코드, QR, RFID 기술을 활용하여 고객 관리 및 마케팅 효율을 극대화합니다.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="images/idcard.jpg" alt="ID카드">
+                        </div>
+                        <div class="product-info">
+                            <h3>ID & 사원증 카드</h3>
+                            <p>보안 홀로그램과 고해상도 사진 인쇄로 기업의 보안과 아이덴티티를 강화합니다.</p>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="images/access.jpg" alt="액세스카드">
+                        </div>
+                        <div class="product-info">
+                            <h3>출입 통제 카드</h3>
+                            <p>RFID와 NFC 기술을 기반으로 한 빠르고 안정적인 스마트 액세스 솔루션을 제공합니다.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="images/giftcard.jpg" alt="기프트카드">
+                        </div>
+                        <div class="product-info">
+                            <h3>기프트 & 선불카드</h3>
+                            <p>매력적인 커스텀 디자인과 재충전 기능으로 브랜드 가치를 높이는 마케팅 툴입니다.</p>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="images/hotel.jpg" alt="호텔키카드">
+                        </div>
+                        <div class="product-info">
+                            <h3>호텔 키카드</h3>
+                            <p>객실 출입은 물론 부대시설 이용까지 가능한 다기능 스마트 호텔 솔루션입니다.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 연락처 섹션 (푸터에 통합) -->
+        <section class="section" id="contact">
+            <div class="container">
+                 <h2 class="section-title">Contact Us</h2>
+                 <p class="section-subtitle">프로젝트에 대해 궁금한 점이 있으신가요? 지금 바로 문의하세요. 최고의 전문가들이 답변을 준비하고 있습니다.</p>
+                 <div style="text-align:center; font-size: 1.2rem;">
+                     <p><strong>Email:</strong> <a href="mailto:info@pvccard.co.kr" style="color:var(--primary-blue);">info@pvccard.co.kr</a></p>
+                     <p style="margin-top: 1rem;"><strong>Phone:</strong> <a href="tel:02-1234-5678" style="color:var(--light-gray); text-decoration:none;">02-1234-5678</a></p>
+                     <p style="margin-top: 1rem;"><strong>Address:</strong> 서울시 강남구 테헤란로 123, ABC 빌딩 25층</p>
+                 </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- 푸터 -->
+    <footer class="main-footer">
+        <div class="container">
+            <p>© 2025 PVCARD Solutions. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
