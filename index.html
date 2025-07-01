@@ -3,88 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PVC Card Solutions - 신뢰를 구축하는 카드 제조</title>
+    <title>영카드인 - 신뢰를 구축하는 카드 제조</title>
     
     <!-- Google Fonts: Modern & Geometric -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- ★★★★★ 중요: 외부 CSS 파일 연결 ★★★★★ -->
+    <link rel="stylesheet" href="style.css">
 
-    <style>
-        /* ★★★★★ 변경된 스타일: 라이트 모드 ★★★★★ */
-        :root {
-            /* 기존 색상 변수 값을 라이트 모드에 맞게 반전 */
-            --dark-bg: #ffffff; /* 주 배경색을 흰색으로 변경 */
-            --content-bg: #ffffff; /* 카드 등 콘텐츠 배경색도 흰색으로 */
-            --primary-blue: #007aff; /* 포인트 색상은 유지 */
-            --light-gray: #5a5f6a; /* 본문 텍스트 색상을 어둡게 변경 */
-            --white: #1a1d24; /* 헤드라인 텍스트 색상을 매우 어둡게 변경 */
-            --border-color: #e0e6ed; /* 테두리 색상을 밝은 회색으로 변경 */
-        }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body { 
-            font-family: 'Poppins', 'Noto Sans KR', sans-serif; 
-            background-color: var(--dark-bg); /* 변경: 어두운 배경 대신 흰색 배경 적용 */
-            color: var(--light-gray); 
-            line-height: 1.7; 
-            /* 변경: 어두운 배경 이미지 및 그라데이션 제거 */
-        }
-        .container { max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
-        .main-header { 
-            position: fixed; 
-            top: 0; 
-            left: 0; 
-            width: 100%; 
-            padding: 1.5rem 0; 
-            /* 변경: 배경을 밝은 반투명으로 수정 */
-            background: rgba(255, 255, 255, 0.8); 
-            backdrop-filter: blur(10px); 
-            border-bottom: 1px solid var(--border-color); 
-            z-index: 1000; 
-        }
-        .main-nav { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-family: 'Montserrat', sans-serif; font-size: 1.5rem; font-weight: 700; color: var(--white); text-decoration: none; }
-        .logo span { color: var(--primary-blue); }
-        .nav-links a { color: var(--light-gray); text-decoration: none; margin-left: 2rem; font-weight: 500; transition: color 0.3s ease; }
-        .nav-links a:hover { color: var(--primary-blue); }
-        .hero { display: flex; align-items: center; justify-content: center; text-align: center; min-height: 100vh; padding-top: 80px; }
-        .hero-content h1 { font-family: 'Montserrat', sans-serif; font-size: 4rem; font-weight: 700; color: var(--white); margin-bottom: 1rem; line-height: 1.2; }
-        .hero-content .subtitle { font-size: 1.25rem; max-width: 700px; margin: 0 auto 2rem; color: var(--light-gray); }
-        .cta-button { display: inline-block; background: var(--primary-blue); color: #ffffff; padding: 1rem 2.5rem; border-radius: 5px; text-decoration: none; font-weight: 500; transition: transform 0.3s ease, box-shadow 0.3s ease; }
-        .cta-button:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0, 122, 255, 0.2); }
-        .section { padding: 6rem 0; }
-        .section-title { font-family: 'Montserrat', sans-serif; font-size: 2.5rem; color: var(--white); text-align: center; margin-bottom: 1rem; position: relative; }
-        .section-title::after { content: ''; display: block; width: 60px; height: 3px; background: var(--primary-blue); margin: 1rem auto 0; }
-        .section-subtitle { text-align: center; font-size: 1.1rem; color: var(--light-gray); margin-bottom: 4rem; max-width: 600px; margin-left: auto; margin-right: auto; }
-        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
-        .feature-card { 
-            background: var(--content-bg); 
-            padding: 2.5rem; 
-            border: 1px solid var(--border-color); 
-            border-radius: 8px; 
-            /* 변경: 그림자 효과 추가하여 입체감 부여 */
-            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.07);
-            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; 
-        }
-        .feature-card:hover { 
-            transform: translateY(-5px); 
-            border-color: var(--primary-blue); 
-            /* 변경: 호버 시 그림자 효과 강화 */
-            box-shadow: 0 8px 30px rgba(0, 122, 255, 0.12);
-        }
-        .feature-icon { font-size: 2.5rem; color: var(--primary-blue); margin-bottom: 1.5rem; }
-        .feature-card h3 { font-size: 1.5rem; color: var(--white); margin-bottom: 1rem; }
-        .main-footer { 
-            /* 변경: 푸터 배경색을 밝은 회색으로 수정 */
-            background: #f8f9fa; 
-            padding: 3rem 0; 
-            text-align: center; 
-            border-top: 1px solid var(--border-color); 
-            margin-top: 6rem; 
-        }
-        .main-footer p { color: var(--light-gray); }
-    </style>
 </head>
 <body>
 
@@ -92,12 +20,13 @@
     <header class="main-header">
         <div class="container">
             <nav class="main-nav">
-                <a href="index.html" class="logo">PVCARD<span>.</span></a>
+                <!-- ★★★ 로고 변경 ★★★ -->
+                <a href="index.html" class="logo">YOUNGCARDIN<span>.</span></a>
                 <div class="nav-links">
-                    <a href="#strengths">Our Strengths</a>
-                    <!-- ★★★★★ 중요: products.html 파일로 링크를 연결합니다 ★★★★★ -->
-                    <a href="products.html">Products</a>
-                    <a href="#contact">Contact</a>
+                    <!-- ★★★ 메뉴명 변경 ★★★ -->
+                    <a href="#strengths">특장점</a>
+                    <a href="products.html">제품소개</a>
+                    <a href="#contact">문의하기</a>
                 </div>
             </nav>
         </div>
@@ -108,10 +37,10 @@
         <section class="hero" id="hero">
             <div class="container">
                 <div class="hero-content">
-                    <h1>Architects of Identity</h1>
-                    <p class="subtitle">20년 이상의 전문성으로 고객의 신뢰를 구축하는 프리미엄 PVC 카드 솔루션. 정밀함과 혁신으로 당신의 브랜드를 완성합니다.</p>
-                    <!-- ★★★★★ 중요: 버튼도 products.html 파일로 링크를 연결합니다 ★★★★★ -->
-                    <a href="products.html" class="cta-button">모든 제품 보기</a>
+                    <!-- ★★★ 메인 문구 변경 ★★★ -->
+                    <h1>Architects of Trust</h1>
+                    <p class="subtitle">1997년부터 이어온 25년 이상의 역사. 영카드인이 고객의 신뢰를 구축하는 프리미엄 PVC 카드 솔루션을 제공합니다.</p>
+                    <a href="products.html" class="cta-button">제품소개 바로가기</a>
                 </div>
             </div>
         </section>
@@ -119,9 +48,11 @@
         <!-- 우리의 강점 섹션 -->
         <section class="section" id="strengths">
             <div class="container">
-                <h2 class="section-title">Our Strengths</h2>
+                <!-- ★★★ 섹션 제목 변경 ★★★ -->
+                <h2 class="section-title">영카드인의 강점</h2>
                 <p class="section-subtitle">우리는 단순한 카드 제조사를 넘어, 기술과 디자인으로 고객의 비전을 실현하는 파트너입니다.</p>
                 <div class="features-grid">
+                    <!-- 내용은 그대로 유지 -->
                     <div class="feature-card"> <div class="feature-icon">⚡</div> <h3>신속한 생산</h3> <p>최신 장비와 효율적인 생산 시스템으로 업계 최고의 납기 속도를 준수합니다.</p> </div>
                     <div class="feature-card"> <div class="feature-icon">🎯</div> <h3>정밀한 품질</h3> <p>ISO 표준을 준수하는 엄격한 품질 관리로 모든 카드에서 완벽함을 보장합니다.</p> </div>
                     <div class="feature-card"> <div class="feature-icon">🔧</div> <h3>맞춤형 솔루션</h3> <p>고객의 독창적인 요구에 부응하는 완벽한 맞춤형 카드 디자인 및 제작이 가능합니다.</p> </div>
@@ -133,12 +64,14 @@
         <!-- 연락처 섹션 -->
         <section class="section" id="contact">
             <div class="container">
-                 <h2 class="section-title">Contact Us</h2>
+                 <!-- ★★★ 섹션 제목, 내용 변경 ★★★ -->
+                 <h2 class="section-title">문의 및 오시는 길</h2>
                  <p class="section-subtitle">프로젝트에 대해 궁금한 점이 있으신가요? 지금 바로 문의하세요. 최고의 전문가들이 답변을 준비하고 있습니다.</p>
-                 <div style="text-align:center; font-size: 1.2rem;">
-                     <p><strong>Email:</strong> <a href="mailto:info@pvccard.co.kr" style="color:var(--primary-blue);">info@pvccard.co.kr</a></p>
-                     <p style="margin-top: 1rem;"><strong>Phone:</strong> <a href="tel:02-1234-5678" style="color:var(--light-gray); text-decoration:none;">02-1234-5678</a></p>
-                     <p style="margin-top: 1rem;"><strong>Address:</strong> 서울시 강남구 테헤란로 123, ABC 빌딩 25층</p>
+                 <div style="text-align:center; font-size: 1.2rem; line-height: 2;">
+                     <p><strong>Email:</strong> <a href="mailto:youngcardin@hanmail.net" style="color:var(--primary-blue);">youngcardin@hanmail.net</a></p>
+                     <p><strong>TEL:</strong> <a href="tel:02-6292-6594" style="color:var(--light-gray); text-decoration:none;">02-6292-6594~6</a></p>
+                     <p><strong>FAX:</strong> 02-6292-6597</p>
+                     <p><strong>주소:</strong> 서울 금천구 가산디지털1로 119 SK트윈테크타워 A동 907호</p>
                  </div>
             </div>
         </section>
@@ -147,7 +80,8 @@
     <!-- 푸터 -->
     <footer class="main-footer">
         <div class="container">
-            <p>© 2025 PVCARD Solutions. All Rights Reserved.</p>
+            <!-- ★★★ 저작권 문구 변경 ★★★ -->
+            <p>© 2025 영카드인 (YOUNGCARDIN). All Rights Reserved.</p>
         </div>
     </footer>
 
