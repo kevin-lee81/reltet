@@ -19,6 +19,7 @@ html {
 }
 
 body {
+    /* Noto Sans KR 폰트를 기본으로 사용하도록 추가 */
     font-family: 'Poppins', 'Noto Sans KR', sans-serif;
     background-color: var(--dark-bg);
     color: var(--light-gray);
@@ -112,6 +113,8 @@ body {
     text-decoration: none;
     font-weight: 500;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* ▼▼▼ 요청사항: 버튼 내 글자 크기 키움 ▼▼▼ */
+    font-size: 1.1rem; 
 }
 
 .cta-button:hover {
@@ -189,7 +192,7 @@ body {
     margin-bottom: 1rem;
 }
 
-/* products.html - 제품 카드 */
+/* 제품 카드 (공통 스타일) */
 .products-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
